@@ -1,1 +1,3 @@
-# Datumo Counter
+# Counter
+
+This code uses environment variables

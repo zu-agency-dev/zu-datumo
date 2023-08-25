@@ -2,12 +2,17 @@ import dotenv from 'dotenv';
 import { GoogleSpreadsheet } from 'google-spreadsheet';
 dotenv.config();
 
-const doc = new GoogleSpreadsheet(process.env.SHEET_ID, { apiKey: process.env.GOOGLE_SHEETS_API });
-
+const doc = new GoogleSpreadsheet(process.env.SPREADSHEET_ID, { apiKey: process.env.SPREADSHEET_API });
 await doc.loadInfo();
-console.log(doc.title);
 
-const sheet = doc.sheetsByIndex[1];
+const selectSheetPage = 1;
+const sheet = doc.sheetsByIndex[selectSheetPage];
 await sheet.loadCells('A1');
-console.log(sheet.title);
-console.log(sheet.getCell(0, 0).value);
+
+function getCellValue(x, y) {
+    const cell = sheet.getCell(x, y);
+    return cell.value;
+}
+
+console.log('cv:', getCellValue(0, 0));
+getCellValue(0, 0);
