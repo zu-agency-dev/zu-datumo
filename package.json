@@ -5,6 +5,7 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
+    "build": "pnpx esbuild --bundle src/counter.js --outdir=dist --minify --sourcemap --platform=node --format=esm",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -12,6 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "dotenv": "^16.3.1",
+    "esbuild": "0.19.2",
     "google-spreadsheet": "^4.0.2"
   }
 }
